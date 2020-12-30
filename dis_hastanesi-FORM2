@@ -85,6 +85,7 @@ namespace dis_hastanesi
                 NpgsqlCommand degis = new NpgsqlCommand(guncelle, baglanti);
 
                 degis.ExecuteNonQuery();
+                MessageBox.Show("Hasta kaydı güncellendi.");
 
                 baglanti.Close();
             }
@@ -367,7 +368,7 @@ namespace dis_hastanesi
 
                 }
 
-                NpgsqlCommand doktor_id = new NpgsqlCommand("SELECT \"personel\".personel_id from  personel  inner join unvan on personel.unvan_id = unvan.unvan_id where unvan.unvan_adi || ' ' ||  personel.adi_soyadi ='" + Form1.doktor_secim + "'", baglanti);
+                NpgsqlCommand doktor_id = new NpgsqlCommand("SELECT \"personel\".personel_id from  personel  inner join unvan on personel.unvan_id = unvan.unvan_id where unvan.unvan_adi||' '||personel.adi_soyadi ='" + Form1.doktor_secim + "'", baglanti);
                 NpgsqlCommand stajyer_id = new NpgsqlCommand("Select stajyer_id from stajyer_hekim where adi_soyadi='" + Form1.stajyer_secim + "'", baglanti);
 
                 string ekle = "insert into islem_kayıt(hasta_id,tani_id,tedavi_id,tarih,ilac_id,personel_id,stajyer_id) values('" + Convert.ToInt32(hastaid.ExecuteScalar()) + "','" + Convert.ToInt32(taniid.ExecuteScalar())
