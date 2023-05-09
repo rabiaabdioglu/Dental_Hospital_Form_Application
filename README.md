@@ -1,4 +1,5 @@
-# dis_hastanesi
+# Dental_Hospital_Form_Application
+
 
 C# ve PostgreSql ile diş hastanesinde doktorlar için form uygulaması.
 
